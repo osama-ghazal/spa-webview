@@ -7,6 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+<script>
+  // If AndroidBridge isn’t provided by the WebView, create a no‐op stub.
+  if (!window.AndroidBridge) {
+    window.AndroidBridge = {
+      sendMessage(msg) {
+        console.log('Bridge stub got:', msg);
+        const log = document.getElementById('bridge-log');
+        if (log) { log.innerText = `Stubbed sendMessage(“${msg}”)`; }
+      }
+    };
+  }
+</script>
 <body>
   <app-root></app-root>
 </body>

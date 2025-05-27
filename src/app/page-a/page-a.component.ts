@@ -23,8 +23,11 @@ export class PageAComponent {
       this.router.navigate(['/pageB']);
     } else {
       const msg = '/pageB';
-      window.AndroidBridge.sendMessage(msg);
-      this.bridgeMessage = msg;
+   if (window.AndroidBridge && typeof window.AndroidBridge.sendMessage === 'function') {
+     window.AndroidBridge.sendMessage(msg);
+   } else {
+     console.warn('AndroidBridge not available — message was:', msg);
+   }      this.bridgeMessage = msg;
     }
   }
 }
