@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { PageAComponent } from './page-a/page-a.component';
 import { PageBComponent } from './page-b/page-b.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'pageA', component: PageAComponent },
   { path: 'pageB', component: PageBComponent },
