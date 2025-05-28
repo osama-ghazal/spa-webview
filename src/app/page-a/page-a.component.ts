@@ -18,16 +18,19 @@ export class PageAComponent {
 
   constructor(private router: Router) {}
 
+  goHome() {
+    this.router.navigate(['/']);
+  }
+
   goToPageB(type: string) {
     if (type === 'spa') {
       this.router.navigate(['/pageB']);
-    } else {
+    } else if (window.AndroidBridge?.sendMessage) {
       const msg = '/pageB';
-   if (window.AndroidBridge && typeof window.AndroidBridge.sendMessage === 'function') {
-     window.AndroidBridge.sendMessage(msg);
-   } else {
-     console.warn('AndroidBridge not available — message was:', msg);
-   }      this.bridgeMessage = msg;
+      window.AndroidBridge.sendMessage(msg);
+      this.bridgeMessage = msg;
+    } else {
+      console.warn('AndroidBridge not available');
     }
   }
 }

@@ -1,5 +1,12 @@
+<div style="display: flex; align-items: center; justify-content: space-between; margin: 1rem;">
+  <button (click)="goHome()">← Home</button>
+  <h2>PAGE A</h2>
+  <!-- spacer to keep title centered -->
+  <div style="width: 75px;"></div>
+</div>
+
 <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem;">
-  <button (click)="goToPageB('spa')">Page A – SPA routing</button>
+  <button (click)="goToPageB('spa')">Page B – SPA routing</button>
   <button (click)="goToPageB('bridge')">Page B – CP navigation</button>
 </div>
 
