@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 declare global {
-  interface Window { AndroidBridge: { sendMessage(msg: string): void }; }
+  interface Window { AndroidBridge?: { sendMessage(msg: string): void } }
 }
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule],
   selector: 'app-page-a',
-  templateUrl: './page-a.component.html'
+  templateUrl: './page-a.component.html',
+  imports: [CommonModule, RouterModule]
 })
 export class PageAComponent {
   bridgeMessage = '';
@@ -22,7 +22,7 @@ export class PageAComponent {
     this.router.navigate(['/']);
   }
 
-  goToPageB(type: string) {
+  goToPageB(type: 'spa' | 'bridge') {
     if (type === 'spa') {
       this.router.navigate(['/pageB']);
     } else if (window.AndroidBridge?.sendMessage) {

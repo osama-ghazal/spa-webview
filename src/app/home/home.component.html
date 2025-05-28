@@ -1,17 +1,3 @@
 <div style="text-align: center; margin-top: 2rem;">
-  <h2>Welcome to Home Page ! This page demonstrates SPA routing and CP navigation.</h2>
-  <button (click)="toggleButtons()">
-    {{ showButtons ? 'Hide' : 'Navigation' }}
-  </button>
-</div>
-
-<div *ngIf="showButtons" 
-     style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
-  <button (click)="goToPageB('spa')">Page A – SPA routing</button>
-  <button (click)="goToPageB('bridge')">Page B – CP navigation</button>
-</div>
-
-<div *ngIf="bridgeMessage" 
-     style="margin-top: 1rem; text-align: center; color: teal;">
-  Bridge message: {{ bridgeMessage }}
+  <button (click)="navigateToPageA()">Navigation</button>
 </div>
