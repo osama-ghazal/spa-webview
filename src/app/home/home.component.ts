@@ -24,7 +24,7 @@ export class HomeComponent {
 
   goToPageB(type: 'spa' | 'bridge') {
     if (type === 'spa') {
-      this.router.navigate(['/pageB']);
+      this.router.navigate(['/pageA']);   // ← route to Page A now
     } else if (window.AndroidBridge?.sendMessage) {
       const msg = '/pageB';
       window.AndroidBridge.sendMessage(msg);
